@@ -7,7 +7,7 @@ import React from "react";
 function NavBar() {
   return (
     <div className="inset-0 z-50">
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center fixed z-50 bg-blend-saturation bg-white">
+      <header className="container mx-auto px-4 py-6 flex justify-between items-center fixed z-50 bg-blend-saturation bg-white  max-sm:py-3">
         <div className="flex items-center">
           <Image
             src="https://www.ekitistate.gov.ng/wp-content/uploads/LOGO-1.jpg?height=40&width=40"
