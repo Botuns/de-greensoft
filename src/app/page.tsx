@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <div>
       <div className="mx-4 md:mx-20">
-        <HeroSection />
+        <div className=" max-sm:mt-4">
+          <HeroSection />
+        </div>
         <LandingPageSections />
       </div>
     </div>
