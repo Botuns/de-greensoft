@@ -16,9 +16,7 @@ function NavBar() {
             height={40}
             className="mr-2"
           />
-          <span className="text-base font-semibold text-gray-800">
-            Farmers Management System
-          </span>
+          <span className="text-base font-semibold text-gray-800">F M S</span>
         </div>
         <nav className="hidden md:flex space-x-6">
           <Link href="#" className="text-gray-600 hover:text-gray-800">

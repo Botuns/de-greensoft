@@ -7,8 +7,8 @@ export default function HeroSection() {
     <div className="bg-white min-h-screen">
       <main className="container mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-8 md:mb-0">
-          <h2 className="text-sm font-semibold bg-gray-200 mb-2 w-fit p-1 px-2 rounded-[1rem]">
-            Sustainable Industry for a Nigerian Farmers
+          <h2 className="text-sm font-semibold bg-gray-200 mb-2 w-fit p-1 px-2 rounded-[1rem] barlow-bold">
+            Farmers Management System
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 pt-serif-bold leading-tight">
             Increasing Farm{" "}
