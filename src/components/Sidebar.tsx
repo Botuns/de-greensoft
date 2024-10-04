@@ -19,18 +19,18 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { icon: Home, name: "Dashboard", href: "/dashboard" },
-  { icon: Users, name: "Farmers", href: "/dashboard/farmers" },
-  { icon: Bell, name: "Notifications", href: "/notifications" },
-  { icon: CreditCard, name: "Payments", href: "/payments" },
-  { icon: FileText, name: "Reports", href: "/dashboard/reports" },
-  { icon: ShoppingCart, name: "Orders", href: "/dashboard/orders" },
-  { icon: MessageSquare, name: "Communication", href: "/dashboard/communication" },
-  { icon: MapPin, name: "Geo-tagging", href: "/dashboard/geo-tagging" },
-  { icon: Home, name: "Property", href: "/dashboard/property" },
-  { icon: Activity, name: "Precision Farming", href: "/dashboard/precision-farming" },
-  { icon: Calendar, name: "Schedule", href: "/dashboard/schedule" },
-  { icon: Activity, name: "Farm Activities", href: "/dashboard/farm-activities" },
+  { icon: Home, name: "Dashboard", href: "/admin/dashboard" },
+  { icon: Users, name: "Farmers", href: "/admin/dashboard/farmers" },
+  { icon: Bell, name: "Notifications", href: "/admin/notifications" },
+  { icon: CreditCard, name: "Payments", href: "/admin/payments" },
+  { icon: FileText, name: "Reports", href: "/admin/dashboard/reports" },
+  { icon: ShoppingCart, name: "Orders", href: "/admin/dashboard/orders" },
+  { icon: MessageSquare, name: "Communication", href: "/admin/dashboard/communication" },
+  { icon: MapPin, name: "Geo-tagging", href: "/admin/dashboard/geo-tagging" },
+  { icon: Home, name: "Property", href: "/admin/dashboard/property" },
+  { icon: Activity, name: "Precision Farming", href: "/admin/dashboard/precision-farming" },
+  { icon: Calendar, name: "Schedule", href: "/admin/dashboard/schedule" },
+  { icon: Activity, name: "Farm Activities", href: "/admin/dashboard/farm-activities" },
 ];
 
 export default function Sidebar() {

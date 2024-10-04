@@ -30,8 +30,10 @@ import { toast } from "@/hooks/use-toast";
 import { useFarmerStore } from "@/hooks/providers/usefarmerStore";
 import autoTable, { UserOptions } from "jspdf-autotable";
 import { Row } from "@tanstack/react-table";
+import { useRouter } from "next/navigation";
 
 export default function AllFarmersPage() {
+  const router = useRouter();
   const { farmers, setFarmers } = useFarmerStore();
   const [filteredFarmers, setFilteredFarmers] = useState<Farmer[]>(farmers);
   const [searchTerm, setSearchTerm] = useState("");
@@ -159,7 +161,16 @@ export default function AllFarmersPage() {
 
   return (
     <div className="container max-w-6xl py-10 mx-auto ">
-      <h1 className="text-3xl font-bold mb-6">All Farmers</h1>
+      <div className="flex justify-between">
+        <h1 className="text-3xl font-bold mb-6">All Farmers</h1>
+        <Button
+          onClick={() => {
+            router.push("/admin/dashboard/add-farmer");
+          }}
+        >
+          Add new farmer
+        </Button>
+      </div>
       <div className="flex justify-between items-center mb-4">
         <Input
           placeholder="Search farmers..."

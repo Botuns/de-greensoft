@@ -78,8 +78,19 @@ export default function Dashboard() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Farmer Dashboard</h1>
-
+      <div className="flex justify-between">
+        <h1 className="text-2xl font-bold mb-6 text-secondary-foreground">
+          Get an overview of available farmers data
+        </h1>
+        <Button
+          className=""
+          onClick={() => {
+            router.push("/admin/dashboard/add-farmer");
+          }}
+        >
+          Add new farmer
+        </Button>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <motion.div
           variants={cardVariants}
@@ -179,7 +190,9 @@ export default function Dashboard() {
                   data={farmers.slice(0, farmersPerPage)}
                 />
                 <div className="mt-4 flex justify-end">
-                  <Button onClick={() => router.push("/dashboard/farmers")}>
+                  <Button
+                    onClick={() => router.push("/admin/dashboard/farmers")}
+                  >
                     View All Farmers
                   </Button>
                 </div>
