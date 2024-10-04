@@ -16,8 +16,8 @@ function NavBar() {
             height={40}
             className="mr-2"
           />
-          <span className="text-xl font-semibold text-gray-800">
-            De GreenSoft
+          <span className="text-base font-semibold text-gray-800">
+            Farmers Management System
           </span>
         </div>
         <nav className="hidden md:flex space-x-6">
@@ -34,7 +34,7 @@ function NavBar() {
             Stories
           </Link>
         </nav>
-        <button className="bg-gray-800 text-white px-4 py-2 rounded-full text-sm">
+        <button className="bg-primary text-white px-4 py-2 rounded-full text-sm max-sm:text-[0.7rem] ">
           Contact Us
         </button>
       </header>

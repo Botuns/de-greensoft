@@ -8,7 +8,7 @@ export default function HeroSection() {
       <main className="container mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-8 md:mb-0">
           <h2 className="text-sm font-semibold bg-gray-200 mb-2 w-fit p-1 px-2 rounded-[1rem]">
-            Sustainable Industry for a Green Planet
+            Sustainable Industry for a Nigerian Farmers
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 pt-serif-bold leading-tight">
             Increasing Farm{" "}
@@ -57,7 +57,7 @@ export default function HeroSection() {
           />
           <div>
             <h3 className="font-semibold text-gray-800">
-              An initiative by Degreesoft powered by Ekiti State Governent{" "}
+              An initiative by Degreesoft fully funded by Ekiti State Governent{" "}
             </h3>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function HeroSection() {
           </Link>
         </div>
         <div className="bg-white p-4 rounded-lg shadow md:w-1/3">
-          <h3 className="font-semibold text-gray-800 mb-2">Genonstera App</h3>
+          <h3 className="font-semibold text-gray-800 mb-2">In this App</h3>
           <p className="text-sm text-gray-600">
             App users can easily integrate and manage their farm data into
             actionable insights.
