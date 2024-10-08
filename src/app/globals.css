@@ -152,7 +152,9 @@ body {
     font-weight: 900;
     font-style: italic;
   }
-
+  .barlow {
+    font-family: "Barlow", sans-serif;
+  }
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;

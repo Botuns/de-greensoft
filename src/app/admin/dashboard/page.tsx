@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any*/
-
 "use client";
-
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, Wheat, ChartPie, BrainCircuit } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   BarChart,
   Bar,
@@ -15,24 +18,25 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
 } from "recharts";
+import {  Download,  Cloud } from "lucide-react";
+// import Image from "next/image";
+import { useFarmerStore } from "@/hooks/providers/usefarmerStore";
 import { DataTable } from "@/components/DataTable";
 import { columns } from "@/components/columns";
-import { useFarmerStore } from "@/hooks/providers/usefarmerStore";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Farmers } from "@/app/data/farmer";
-import { useRouter } from "next/navigation";
+
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 export default function Dashboard() {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
   const { farmers, setFarmers } = useFarmerStore();
-  const farmersPerPage = 10;
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setFarmers(Farmers);
-      setIsLoading(false);
+      // setIsLoading(false);
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -55,152 +59,191 @@ export default function Dashboard() {
     { name: "Mixed", value: mixedFarmers },
   ];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-  const DataCard = ({ title, value, icon: Icon }: any) => (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        <Icon className="h-4 w-4 text-primary" />
-      </CardHeader>
-      <CardContent>
-        {isLoading ? (
-          <Skeleton className="h-8 w-20" />
-        ) : (
-          <div className="text-2xl font-bold">{value}</div>
-        )}
-      </CardContent>
-    </Card>
-  );
+  const yieldData = [
+    { name: "Jan", yield: 200 },
+    { name: "Feb", yield: 300 },
+    { name: "Mar", yield: 350 },
+    { name: "Apr", yield: 200 },
+    { name: "May", yield: 500 },
+    { name: "Jun", yield: 300 },
+    { name: "Jul", yield: 400 },
+    { name: "Aug", yield: 450 },
+    { name: "Sep", yield: 500 },
+  ];
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="flex justify-between">
-        <h1 className="text-2xl font-bold mb-6 text-secondary-foreground">
-          Get an overview of available farmers data
-        </h1>
-        <Button
-          className=""
-          onClick={() => {
-            router.push("/admin/dashboard/add-farmer");
-          }}
-        >
-          Add new farmer
-        </Button>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.1 }}
-        >
-          <DataCard title="Total Farmers" value={totalFarmers} icon={Users} />
-        </motion.div>
+    <div className="bg-background min-h-screen">
+      {/*  */}
 
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.2 }}
-        >
-          <DataCard title="Crop Farmers" value={cropFarmers} icon={Wheat} />
-        </motion.div>
+      <main className="p-6">
+        <div className="flex justify-between items-center mb-6">
+          <div>
+            <h2 className="text-3xl font-bold">Good Morning !</h2>
+            <p className="text-muted-foreground">
+              Optimize Your Farm Operations with Real-Time Insights
+            </p>
+          </div>
+          <div className="flex items-center space-x-4">
+            <Select defaultValue="this-month">
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select period" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="this-month">This Month</SelectItem>
+                <SelectItem value="last-month">Last Month</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button variant="outline">
+              Export <Download className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
 
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.3 }}
-        >
-          <DataCard
-            title="Livestock Farmers"
-            value={livestockFarmers}
-            icon={BrainCircuit}
-          />
-        </motion.div>
+        <div className="grid grid-cols-4 gap-6 mb-6">
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-sm">
+                  Chicago
+                </div>
+                <Select defaultValue="celsius">
+                  <SelectTrigger className="w-[70px]">
+                    <SelectValue placeholder="Unit" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="celsius">°C</SelectItem>
+                    <SelectItem value="fahrenheit">°F</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-4xl font-bold">24° C</p>
+                  <p className="text-muted-foreground">Monday, 27 Aug 2024</p>
+                </div>
+                <div className="text-right">
+                  <Cloud className="h-10 w-10 text-blue-500 mb-2" />
+                  <p>Cloudy</p>
+                  <p className="text-muted-foreground">Feels like 25</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.4 }}
-        >
-          <DataCard
-            title="Mixed Farmers"
-            value={mixedFarmers}
-            icon={ChartPie}
-          />
-        </motion.div>
-      </div>
+          <Card className="col-span-2">
+            <CardHeader>
+              <CardTitle className="flex justify-between">
+                <span>Production Overview</span>
+                <Select defaultValue="yearly">
+                  <SelectTrigger className="w-[100px]">
+                    <SelectValue placeholder="Period" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="yearly">Yearly</SelectItem>
+                    <SelectItem value="monthly">Monthly</SelectItem>
+                  </SelectContent>
+                </Select>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-center items-center">
+                <PieChart width={200} height={200}>
+                  <Pie
+                    data={farmTypeData}
+                    cx={100}
+                    cy={100}
+                    innerRadius={60}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    dataKey="value"
+                  >
+                    {farmTypeData.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </div>
+              <div className="flex justify-between text-sm mt-4">
+                {farmTypeData.map((entry, index) => (
+                  <span key={index} className="flex items-center">
+                    <span
+                      className="w-3 h-3 rounded-full mr-2"
+                      style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                    ></span>
+                    {entry.name}: {entry.value}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
-      <motion.div
-        className="mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <Card>
-          <CardHeader>
-            <CardTitle>Farm Type Distribution</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {isLoading ? (
-              <Skeleton className="h-[300px] w-full" />
-            ) : (
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={farmTypeData}>
+          <Card>
+            <CardHeader>
+              <CardTitle>Total Farmers</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-4xl font-bold mb-2">{totalFarmers}</p>
+              <p className="text-sm text-green-500">+8.05% from last month</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6 mb-6">
+          <Card>
+            <CardHeader className="flex justify-between items-center">
+              <CardTitle>Monthly Yield Analysis</CardTitle>
+              <div className="flex items-center space-x-2">
+                <Select defaultValue="corn">
+                  <SelectTrigger className="w-[100px]">
+                    <SelectValue placeholder="Crop" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="corn">Corn</SelectItem>
+                    <SelectItem value="wheat">Wheat</SelectItem>
+                    <SelectItem value="rice">Rice</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Select defaultValue="2024">
+                  <SelectTrigger className="w-[100px]">
+                    <SelectValue placeholder="Year" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="2024">2024</SelectItem>
+                    <SelectItem value="2023">2023</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={200}>
+                <BarChart data={yieldData}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
                   <YAxis />
                   <Tooltip />
-                  <Bar dataKey="value" fill="#10B981" />
+                  <Bar dataKey="yield" fill="#10B981" />
                 </BarChart>
               </ResponsiveContainer>
-            )}
-          </CardContent>
-        </Card>
-      </motion.div>
+            </CardContent>
+          </Card>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-      >
-        <Card>
-          <CardHeader>
-            <CardTitle>Recent Farmers</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {isLoading ? (
-              <div className="space-y-2">
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-full" />
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Farmers</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <DataTable columns={columns} data={farmers.slice(0, 5)} />
+              <div className="mt-4 flex justify-end">
+                <Button variant="outline">View All Farmers</Button>
               </div>
-            ) : (
-              <>
-                <DataTable
-                  columns={columns}
-                  data={farmers.slice(0, farmersPerPage)}
-                />
-                <div className="mt-4 flex justify-end">
-                  <Button
-                    onClick={() => router.push("/admin/dashboard/farmers")}
-                  >
-                    View All Farmers
-                  </Button>
-                </div>
-              </>
-            )}
-          </CardContent>
-        </Card>
-      </motion.div>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
     </div>
   );
 }

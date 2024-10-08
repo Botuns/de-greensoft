@@ -7,8 +7,8 @@ export default function HeroSection() {
     <div className="bg-white min-h-screen max-sm:mt-4">
       <main className="container mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-8 md:mb-0">
-          <h2 className="text-sm font-semibold bg-gray-200 mb-2 w-fit p-1 px-2 rounded-[1rem] barlow-bold">
-            Farmers Management System
+          <h2 className="text-sm font-semibold bg-gray-200 mb-2 w-fit p-1 px-2 rounded-[1rem] barlow-bold rounded-none">
+            Farm Management System
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 pt-serif-bold leading-tight">
             Increasing Farm{" "}
@@ -20,10 +20,10 @@ export default function HeroSection() {
             with supply chain.
           </p>
           <div className="flex space-x-4">
-            <button className="bg-white border border-green-600 text-gray-800 px-6 py-2 rounded-full text-sm hover:bg-gray-100">
+            <button className="bg-white border border-green-600 text-gray-800 px-6 py-2 rounded-full text-sm hover:bg-gray-100 rounded-none">
               More About
             </button>
-            <button className="bg-white border border-green-600 text-gray-800 px-6 py-2 rounded-full text-sm hover:bg-gray-100">
+            <button className="bg-white border border-green-600 text-gray-800 px-6 py-2 rounded-full text-sm hover:bg-gray-100 rounded-none">
               How It Works
             </button>
           </div>
@@ -47,7 +47,7 @@ export default function HeroSection() {
       </main>
 
       <section className="container mx-auto px-4 py-12 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-        <div className="bg-yellow-200 p-4 rounded-lg flex flex-col items-center md:w-1/3">
+        <div className="bg-yellow-200 p-4 rounded-lg flex flex-col items-center md:w-1/3 rounded-none">
           <Image
             src="/p1.jpeg?height=80&width=80"
             alt="Organic produce"
@@ -61,7 +61,7 @@ export default function HeroSection() {
             </h3>
           </div>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow md:w-1/3">
+        <div className="bg-white p-4 rounded-lg shadow md:w-1/3 rounded-none">
           <h3 className="font-semibold text-gray-800 mb-2">
             Data Integrations
           </h3>
@@ -71,12 +71,12 @@ export default function HeroSection() {
           </p>
           <Link
             href="#"
-            className="text-sm text-gray-800 font-semibold mt-2 inline-block"
+            className="text-sm text-gray-800 font-semibold mt-2 inline-block "
           >
             Details →
           </Link>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow md:w-1/3">
+        <div className="bg-white p-4 rounded-lg shadow md:w-1/3 rounded-none">
           <h3 className="font-semibold text-gray-800 mb-2">In this App</h3>
           <p className="text-sm text-gray-600">
             App users can easily integrate and manage their farm data into

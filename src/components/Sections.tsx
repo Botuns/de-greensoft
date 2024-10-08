@@ -12,7 +12,7 @@ import {
   Truck,
   Zap,
 } from "lucide-react";
-import MasonryGallery from "./MasonryGallery";
+// import MasonryGallery from "./MasonryGallery";
 
 export default function LandingPageSections() {
   return (
@@ -23,7 +23,10 @@ export default function LandingPageSections() {
           <h2 className="text-3xl font-bold text-center mb-12">Key Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="transition-all hover:shadow-lg">
+              <Card
+                key={index}
+                className="transition-all hover:shadow-lg rounded-none"
+              >
                 <CardContent className="p-6">
                   <feature.icon className="w-12 h-12 text-green-600 mb-4" />
                   <h3 className="text-xl font-semibold mb-2">
@@ -59,10 +62,10 @@ export default function LandingPageSections() {
           </div>
         </div>
       </section> */}
-      <MasonryGallery />
+      {/* <MasonryGallery /> */}
 
       {/* Call to Action Section */}
-      <section className="py-16 bg-green-600 text-white">
+      <section className="py-16 bg-green-600 text-white my-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Transform Your Farming?
@@ -71,14 +74,14 @@ export default function LandingPageSections() {
             Join our platform and experience the future of agriculture
             management.
           </p>
-          <Button variant="secondary" size="lg">
+          <Button variant="secondary" size="lg" className="rounded-none">
             Get Started Now
           </Button>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
             What Farmers Say
@@ -102,7 +105,7 @@ export default function LandingPageSections() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8">
@@ -208,23 +211,23 @@ const features = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "This portal has revolutionized how I manage my farm. It's user-friendly and packed with features!",
-    name: "Adebayo Ogunlesi",
-    role: "Crop Farmer",
-  },
-  {
-    quote:
-      "The precision farming support has significantly increased my yield. I'm impressed!",
-    name: "Funmilayo Adeyemi",
-    role: "Tech-savvy Farmer",
-  },
-  {
-    quote:
-      "The e-notification system keeps me updated on important information. It's a game-changer!",
-    name: "Oluwaseun Adekunle",
-    role: "Livestock Farmer",
-  },
-];
+// const testimonials = [
+//   {
+//     quote:
+//       "This portal has revolutionized how I manage my farm. It's user-friendly and packed with features!",
+//     name: "Adebayo Ogunlesi",
+//     role: "Crop Farmer",
+//   },
+//   {
+//     quote:
+//       "The precision farming support has significantly increased my yield. I'm impressed!",
+//     name: "Funmilayo Adeyemi",
+//     role: "Tech-savvy Farmer",
+//   },
+//   {
+//     quote:
+//       "The e-notification system keeps me updated on important information. It's a game-changer!",
+//     name: "Oluwaseun Adekunle",
+//     role: "Livestock Farmer",
+//   },
+// ];

@@ -16,7 +16,7 @@ function NavBar() {
             height={40}
             className="mr-2"
           />
-          <span className="text-base font-semibold text-gray-800">F M S</span>
+          <span className="text-base font-semibold text-gray-800">EKFARMS</span>
         </div>
         <nav className="hidden md:flex space-x-6">
           <Link href="#" className="text-gray-600 hover:text-gray-800">
@@ -32,7 +32,7 @@ function NavBar() {
             Stories
           </Link>
         </nav>
-        <button className="bg-primary text-white px-4 py-2 rounded-full text-sm max-sm:text-[0.7rem] ">
+        <button className="bg-primary text-white px-4 py-2 rounded-full text-sm max-sm:text-[0.7rem] rounded-none ">
           Contact Us
         </button>
       </header>
