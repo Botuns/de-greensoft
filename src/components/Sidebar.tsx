@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 const menuItems = [
   { icon: Home, name: "Dashboard", href: "/admin/dashboard" },
   { icon: Users, name: "Farmers", href: "/admin/dashboard/farmers" },
-  { icon: Bell, name: "Notifications", href: "/admin/notifications" },
+  { icon: Bell, name: "Notifications", href: "/admin/dashboard/notifications" },
   { icon: CreditCard, name: "Payments", href: "/admin/payments" },
   { icon: FileText, name: "Reports", href: "/admin/dashboard/reports" },
   { icon: ShoppingCart, name: "Orders", href: "/admin/dashboard/orders" },

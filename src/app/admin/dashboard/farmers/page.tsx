@@ -160,7 +160,7 @@ export default function AllFarmersPage() {
   ];
 
   return (
-    <div className="container max-w-6xl py-10 mx-auto ">
+    <div className="container max-w-6xl py-10 mx-auto overflow-x-auto overflow-x-hidden">
       <div className="flex justify-between">
         <h1 className="text-3xl font-bold mb-6">All Farmers</h1>
         <Button
@@ -299,7 +299,9 @@ export default function AllFarmersPage() {
                 </div>
               </div>
               <DialogFooter>
-                <Button type="submit">Save changes</Button>
+                <Button type="submit" className="w-full">
+                  Save changes
+                </Button>
               </DialogFooter>
             </form>
           )}

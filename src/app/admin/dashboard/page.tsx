@@ -22,16 +22,18 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import {  Download,  Cloud } from "lucide-react";
+import { Download, Cloud } from "lucide-react";
 // import Image from "next/image";
 import { useFarmerStore } from "@/hooks/providers/usefarmerStore";
 import { DataTable } from "@/components/DataTable";
 import { columns } from "@/components/columns";
 import { Farmers } from "@/app/data/farmer";
+import { useRouter } from "next/navigation";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 export default function Dashboard() {
+  const router = useRouter();
   const { farmers, setFarmers } = useFarmerStore();
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -238,7 +240,14 @@ export default function Dashboard() {
             <CardContent>
               <DataTable columns={columns} data={farmers.slice(0, 5)} />
               <div className="mt-4 flex justify-end">
-                <Button variant="outline">View All Farmers</Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    router.push("dashboard/farmers");
+                  }}
+                >
+                  View All Farmers
+                </Button>
               </div>
             </CardContent>
           </Card>
