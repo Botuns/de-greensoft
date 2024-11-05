@@ -33,6 +33,7 @@ import { useRouter } from "next/navigation";
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 export default function Dashboard() {
+  const date = new Date();
   const router = useRouter();
   const { farmers, setFarmers } = useFarmerStore();
   useEffect(() => {
@@ -80,7 +81,7 @@ export default function Dashboard() {
       <main className="p-6">
         <div className="flex justify-between items-center mb-6">
           <div>
-            <h2 className="text-3xl font-bold">Good Morning !</h2>
+            <h2 className="text-3xl font-bold">Good Morning Abiodun!</h2>
             <p className="text-muted-foreground">
               Optimize Your Farm Operations with Real-Time Insights
             </p>
@@ -106,7 +107,7 @@ export default function Dashboard() {
             <CardContent className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <div className="bg-green-500 text-white px-3 py-1 rounded-full text-sm">
-                  Chicago
+                  Ado Ekiti
                 </div>
                 <Select defaultValue="celsius">
                   <SelectTrigger className="w-[70px]">
@@ -121,7 +122,7 @@ export default function Dashboard() {
               <div className="flex justify-between items-center">
                 <div>
                   <p className="text-4xl font-bold">24° C</p>
-                  <p className="text-muted-foreground">Monday, 27 Aug 2024</p>
+                  <p className="text-muted-foreground">{date.toDateString()}</p>
                 </div>
                 <div className="text-right">
                   <Cloud className="h-10 w-10 text-blue-500 mb-2" />
