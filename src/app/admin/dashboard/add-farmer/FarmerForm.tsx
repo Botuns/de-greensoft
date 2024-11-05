@@ -48,17 +48,7 @@ export function FarmerForm({ onNINVerification, onSubmit }: FarmerFormProps) {
       livestockTypes: [],
     },
   });
-  //   const handleCropTypeChange = (cropType: CropType, isChecked: boolean) => {
-  //     setFormData((prev) => ({
-  //       ...prev,
-  //       farm: {
-  //         ...prev.farm,
-  //         cropTypes: isChecked
-  //           ? [...prev.farm.cropTypes, cropType]
-  //           : prev.farm.cropTypes.filter((type) => type !== cropType),
-  //       },
-  //     }));
-  //   };
+  
   const handleCropTypeChange = (cropType: CropType, isChecked: boolean) => {
     setFormData((prev) => ({
       ...prev,
