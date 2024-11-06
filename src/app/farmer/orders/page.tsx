@@ -320,7 +320,7 @@ export default function OrdersPage() {
   );
 }
 
-function Header() {
+export function Header() {
   const farmer = useFarmerStore();
   return (
     <header className="flex justify-between items-center p-4 bg-white shadow-sm">

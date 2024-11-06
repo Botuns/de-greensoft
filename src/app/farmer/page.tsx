@@ -34,7 +34,6 @@ import {
   MessageSquare,
   MapPin,
   Activity,
-  Calendar,
   Settings,
   ChevronDown,
   Bell,
@@ -124,7 +123,7 @@ const menuItems = [
     name: "Farm Management",
     href: "/farmer/dashboard/farm-management",
   },
-  { icon: Calendar, name: "Schedule", href: "/farmer/dashboard/schedule" },
+  { icon: Bell, name: "Notifications", href: "/farmer/notifications" },
   { icon: Settings, name: "Settings", href: "/farmer/dashboard/settings" },
 ];
 
